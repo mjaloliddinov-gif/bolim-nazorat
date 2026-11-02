@@ -1,0 +1,12 @@
+БЎЛИМ ВАЗИФАЛАРИ НАЗОРАТИ — GOOGLE DRIVE ТЎҒРИДАН-ТЎҒРИ
+
+1. Файлларни GitHub Pages ёки ташкилотингизнинг HTTPS серверига жойлаштиринг. index.html, drive_online.js ва jszip.min.js битта папкада бўлиши керак.
+2. https://console.cloud.google.com да лойиҳа яратинг; Google Drive API ни Enable қилинг.
+3. Google Auth Platform -> Branding / Audience да OAuth consent ни созланг. Internal фақат Workspace ташкилот аккаунтлари учун; External Testing да ўз Google аккаунтингизни test users га қўшинг.
+4. Clients -> Create Client -> Web application. Authorized JavaScript origins га сайтнинг HTTPS origin ни ёзинг, масалан https://username.github.io (path киритманг).
+5. Client ID ни нусхаланг (client secret КЕРАК ЭМАС). Сайтда Client ID ни киритиб Google аккаунтга киринг. Файл ID олдиндан киритилган; зарур бўлса ўзгартиринг.
+6. Умумий Excel файлини ўқиш ҳуқуқи бор Google аккаунтдан рухсат беринг. Дастур ҳар 60 сонияда файлнинг Drive modifiedTime қийматини текширади. Ўзгарса, бутун жадвал қайта ўқилади.
+7. OAuth розилиги тест режимида чекланиши мумкин; ташкилот сиёсати чекловлари ҳам қўлланади. Google Drive API scope (drive.readonly) кенг ўқиш ҳуқуқини сўрайди; ташкилот ахборот хавфсизлиги бўлими рухсатини олиш тавсия этилади.
+8. Дастур Google Drive аслини ЎЗГАРТИРМАЙДИ. Ишчи маълумотлар браузер хотирасида, Google токени браузернинг persistent storage жойига сақланмайди. Client ID ва файл ID браузер localStorage да сақланади.
+9. Бу ZIP автоматик тарзда вебга жойлаштирилмайди, Google OAuth Client ID ҳам автоматик яратилмайди. Иккаласи бир марта созланиши зарур.
+10. Агар файл Google Sheets га айлантирилган бўлса, дастур уни XLSX шаклида экспорт қилиб ўқийди.
